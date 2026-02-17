@@ -1,0 +1,168 @@
+:root {
+  --bg: #f4f7fb;
+  --card: #fff;
+  --ink: #13233a;
+  --muted: #5f6b7c;
+  --line: #d7dce4;
+  --accent: #1f70ff;
+  --danger: #ba2d2d;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, Segoe UI, Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem 2rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.page-header h1 {
+  margin: 0;
+}
+
+.page-header p {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-wrap {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.totals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.summary {
+  margin-left: auto;
+  min-width: 220px;
+  background: #f8fbff;
+  border: 1px solid #d5e3ff;
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.summary p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.4rem 0;
+}
+
+.summary .grand {
+  border-top: 1px solid #c8d8ff;
+  padding-top: 0.5rem;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .header-actions,
+  #addItemBtn,
+  .danger {
+    display: none !important;
+  }
+
+  .card {
+    border-color: #bbb;
+    break-inside: avoid;
+  }
+}

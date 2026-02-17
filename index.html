@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electrical Quotation Builder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="page-header">
+        <div>
+          <h1>Electrical Quotation Builder</h1>
+          <p>Create and print professional quotations in minutes.</p>
+        </div>
+        <div class="header-actions">
+          <button id="saveDraftBtn" type="button">Save draft</button>
+          <button id="loadDraftBtn" type="button">Load draft</button>
+          <button id="printBtn" type="button">Print / PDF</button>
+        </div>
+      </header>
+
+      <section class="card company-grid">
+        <h2>Company & Client Details</h2>
+        <div class="grid-2">
+          <label>
+            Quote Number
+            <input id="quoteNumber" type="text" placeholder="Enter quote number" />
+          </label>
+          <label>
+            Date
+            <input id="quoteDate" type="date" />
+          </label>
+          <label>
+            Company Name
+            <input id="companyName" type="text" placeholder="Enter company name" />
+          </label>
+          <label>
+            Company Contact
+            <input id="companyContact" type="text" placeholder="Enter phone / email" />
+          </label>
+          <label>
+            Client Name
+            <input id="clientName" type="text" placeholder="Enter client name" />
+          </label>
+          <label>
+            Client Contact
+            <input id="clientContact" type="text" placeholder="Enter phone / email" />
+          </label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>Items</h2>
+          <button id="addItemBtn" type="button">+ Add item</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Qty</th>
+                <th>Unit</th>
+                <th>Unit Price</th>
+                <th>Amount</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="lineItems"></tbody>
+          </table>
+        </div>
+
+        <div class="totals">
+          <label>
+            Discount (%)
+            <input id="discount" type="number" min="0" max="100" step="0.01" placeholder="0" />
+          </label>
+          <label>
+            Tax / GST (%)
+            <input id="tax" type="number" min="0" max="100" step="0.01" placeholder="0" />
+          </label>
+          <div class="summary">
+            <p><span>Subtotal</span><strong id="subtotal">₹0.00</strong></p>
+            <p><span>Discount</span><strong id="discountAmount">₹0.00</strong></p>
+            <p><span>Tax</span><strong id="taxAmount">₹0.00</strong></p>
+            <p class="grand"><span>Total</span><strong id="grandTotal">₹0.00</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Scope & Notes</h2>
+        <label>
+          Work Scope
+          <textarea id="scope" rows="3" placeholder="Describe covered electrical work..."></textarea>
+        </label>
+        <label>
+          Terms & Conditions
+          <textarea id="terms" rows="3" placeholder="Payment terms, warranty, exclusions..."></textarea>
+        </label>
+      </section>
+    </main>
+
+    <template id="lineItemTemplate">
+      <tr>
+        <td><input class="item-description" type="text" placeholder="Enter item description" /></td>
+        <td><input class="item-qty" type="number" min="0" step="0.01" placeholder="0" /></td>
+        <td><input class="item-unit" type="text" placeholder="e.g. nos" /></td>
+        <td><input class="item-price" type="number" min="0" step="0.01" placeholder="0" /></td>
+        <td class="item-amount">₹0.00</td>
+        <td><button class="danger" type="button">Remove</button></td>
+      </tr>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
